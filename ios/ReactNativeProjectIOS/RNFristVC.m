@@ -49,32 +49,47 @@
 - (void)pushRNClick
 {
     NSLog(@"High Score Button Pressed");
+    
+    UIAlertAction *doneAction = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+//           [self deleteWebCache];
+//           [self removeAllSubview];
+//           if ([self.singOutType isEqualToString:@"1"]) {
+//               [self.navigationController popViewControllerAnimated:YES];
+//           }else{
+//               [self signOut];
+//               exit(0);
+//           }
+       }];
+    
+    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"分享成功" message:nil preferredStyle:UIAlertControllerStyleAlert];
+        [alertController addAction:doneAction];
+        [self presentViewController:alertController animated:YES completion:nil];
 
-    //注意  代码中的​​localhost​​改为你电脑的IP地址
-    //    NSURL *jsCodeLocation = [NSURL URLWithString:@"http://localhost:8081/index.bundle?platform=ios"];
-    NSURL *jsCodeLocation = [NSURL URLWithString:@"http://192.168.50.149:8081/index.bundle?platform=ios"];
-    RCTRootView *rootView =
-      [[RCTRootView alloc] initWithBundleURL: jsCodeLocation
-                                  moduleName: @"ReactApplicationMain"
-                           initialProperties:
-                             @{
-                               @"scores" : @[
-                                 @{
-                                   @"name" : @"Alex",
-                                   @"value": @"42"
-                                  },
-                                 @{
-                                   @"name" : @"Joel",
-                                   @"value": @"10"
-                                 }
-                               ]
-                             }
-                               launchOptions: nil];
-
-
-    UIViewController *vc = [[UIViewController alloc] init];
-    vc.view = rootView;
-    [self.navigationController pushViewController:vc animated:YES];
+//    //注意  代码中的​​localhost​​改为你电脑的IP地址
+//    //    NSURL *jsCodeLocation = [NSURL URLWithString:@"http://localhost:8081/index.bundle?platform=ios"];
+//    NSURL *jsCodeLocation = [NSURL URLWithString:@"http://192.168.50.149:8081/index.bundle?platform=ios"];
+//    RCTRootView *rootView =
+//      [[RCTRootView alloc] initWithBundleURL: jsCodeLocation
+//                                  moduleName: @"ReactApplicationMain"
+//                           initialProperties:
+//                             @{
+//                               @"scores" : @[
+//                                 @{
+//                                   @"name" : @"Alex",
+//                                   @"value": @"42"
+//                                  },
+//                                 @{
+//                                   @"name" : @"Joel",
+//                                   @"value": @"10"
+//                                 }
+//                               ]
+//                             }
+//                               launchOptions: nil];
+//
+//
+//    UIViewController *vc = [[UIViewController alloc] init];
+//    vc.view = rootView;
+//    [self.navigationController pushViewController:vc animated:YES];
 }
 
 #pragma mark ---------- Delegate -------------
